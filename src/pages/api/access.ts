@@ -1,9 +1,6 @@
 import "dotenv/config";
 import type { NextApiRequest, NextApiResponse } from "next";
-
-interface ITwitchRes {
-  name: string;
-}
+import { ITwitchRes } from "../../../types/twitch";
 
 interface err {
   error: any;
