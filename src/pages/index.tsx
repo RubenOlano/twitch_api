@@ -1,22 +1,19 @@
+import { SimpleGrid } from "@chakra-ui/react";
 import type { GetStaticProps, NextPage } from "next";
-import Image from "next/image";
 import { IStreamRes } from "../../types/twitch";
+import NavBar from "../components/NavBar/Navbar";
+import Thumbnails from "../components/Thumbnails/Thumbnails";
 
 const Home: NextPage<IStreamRes> = ({ data }) => {
   return (
-    <div>
-      {data.map((stream) => (
-        <Image
-          key={stream.id}
-          src={stream.thumbnail_url
-            .replace("{width}", "900")
-            .replace("{height}", "400")}
-          alt={stream.title}
-          height={400}
-          width={900}
-        />
-      ))}
-    </div>
+    <>
+      <NavBar />
+      <SimpleGrid columns={3} spacing={12}>
+        {data.map((stream) => {
+          return <Thumbnails key={stream.id} {...stream} />;
+        })}
+      </SimpleGrid>
+    </>
   );
 };
 
@@ -29,6 +26,6 @@ export const getStaticProps: GetStaticProps = async (_context) => {
     props: {
       data,
     },
-    revalidate: 10,
+    revalidate: 60,
   };
 };
