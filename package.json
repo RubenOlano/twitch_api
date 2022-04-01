@@ -16,7 +16,8 @@
     "framer-motion": "^6",
     "next": "12",
     "react": "^18.0.0-rc.3",
-    "react-dom": "^18.0.0-rc.3"
+    "react-dom": "^18.0.0-rc.3",
+    "sharp": "^0.30.3"
   },
   "devDependencies": {
     "@types/node": "17.0.23",

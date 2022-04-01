@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { FC, useMemo } from "react";
 import { Thumbnails } from "../../../types/props";
-import styles from "./Thumbnails.module.css";
+import styles from "./Gallery.module.css";
 
 const Thumbnails: FC<Thumbnails> = ({
   thumbnail_url,
@@ -12,7 +12,7 @@ const Thumbnails: FC<Thumbnails> = ({
   game_name,
 }) => {
   const url = useMemo(
-    () => thumbnail_url.replace("{height}", "200").replace("{width}", "450"),
+    () => thumbnail_url.replace("{height}", "248").replace("{width}", "440"),
     [thumbnail_url]
   );
   return (
@@ -26,8 +26,8 @@ const Thumbnails: FC<Thumbnails> = ({
           <Image
             src={url}
             alt={`${user_name} is streaming ${title}`}
-            height={200}
-            width={450}
+            height={248}
+            width={440}
           />
         </div>
         <div className={styles.overlay}>

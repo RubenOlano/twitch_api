@@ -1,4 +1,5 @@
 import { Box, Center } from "@chakra-ui/react";
+import Link from "next/link";
 import React from "react";
 
 const Navbar = () => {
@@ -13,7 +14,9 @@ const Navbar = () => {
       padding={4}
       marginBottom={4}
     >
-      <Box as="h1">Twitch Streams</Box>
+      <Link href="/" passHref>
+        <Box as="h1">Twitch Streams</Box>
+      </Link>
     </Center>
   );
 };
