@@ -16,8 +16,8 @@ export default async function handler(
         "Client-ID": process.env.TWITCH_CLIENT_ID as string,
       },
     });
-    const { data }: { data: IGameRes } = await twitchRes.json();
-    res.status(200).json(data);
+    const { data }: IGameRes = await twitchRes.json();
+    res.status(200).json({ data });
   } catch (error: any) {
     res.status(500).json({ error: error.message });
   }

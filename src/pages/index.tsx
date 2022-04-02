@@ -5,13 +5,11 @@ import Thumbnails from "../components/Gallery/Gallery";
 
 const Home: NextPage<IStreamRes> = ({ data }) => {
   return (
-    <>
-      <SimpleGrid p={6} columns={4} spacing={12}>
-        {data.map((stream) => {
-          return <Thumbnails key={stream.id} {...stream} />;
-        })}
-      </SimpleGrid>
-    </>
+    <SimpleGrid p={6} columns={4} spacing={5}>
+      {data.map((stream) => {
+        return <Thumbnails key={stream.id} {...stream} />;
+      })}
+    </SimpleGrid>
   );
 };
 

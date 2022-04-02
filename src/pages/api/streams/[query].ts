@@ -6,11 +6,11 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { lang } = req.query;
+  const { query } = req.query;
   const token = getToken();
   try {
     const twitchResponse = await fetch(
-      `https://api.twitch.tv/helix/streams?language=${lang}`,
+      `https://api.twitch.tv/helix/streams?${query}`,
       {
         method: "GET",
         headers: {

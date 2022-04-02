@@ -1,23 +1,31 @@
-import { Box, Center } from "@chakra-ui/react";
-import Link from "next/link";
+import { Box } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 import React from "react";
 
 const Navbar = () => {
+  const router = useRouter();
+  const handleClick = () => {
+    if (router.pathname === "/") return;
+    router.push("/");
+  };
+
   return (
-    <Center
+    <Box
+      onClick={handleClick}
       fontFamily="heading"
       fontSize="5xl"
-      height="8vh"
+      height="9vh"
       width="100vw"
       background="purple.600"
+      justifyItems="center"
       color="white"
       padding={4}
       marginBottom={4}
     >
-      <Link href="/" passHref>
-        <Box as="h1">Twitch Streams</Box>
-      </Link>
-    </Center>
+      <Box verticalAlign="baseline" as="h1">
+        Twitch Streams
+      </Box>
+    </Box>
   );
 };
 

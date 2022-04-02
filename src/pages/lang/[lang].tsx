@@ -21,7 +21,8 @@ export default Home;
 export const getStaticProps: GetStaticProps = async (context) => {
   const { params } = context;
   const lang = params?.lang;
-  const res = await fetch(`http://localhost:3000/api/streams/${lang}`);
+  const query = lang ? `?language=${lang}` : "";
+  const res = await fetch(`http://localhost:3000/api/streams/${query}`);
   const data: IStreamRes = await res.json();
   return {
     props: {
